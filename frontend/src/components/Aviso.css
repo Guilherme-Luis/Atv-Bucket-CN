@@ -1,0 +1,35 @@
+.aviso {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid;
+  border-radius: 6px;
+}
+
+.aviso p {
+  margin: 0;
+}
+
+.aviso--erro {
+  background: var(--perigo-fundo);
+  border-color: var(--perigo);
+  color: var(--perigo-escuro);
+}
+
+.aviso--sucesso {
+  background: var(--verde-fundo);
+  border-color: var(--verde);
+  color: var(--verde-escuro);
+}
+
+.aviso__fechar {
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}

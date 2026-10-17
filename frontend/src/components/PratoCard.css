@@ -1,0 +1,61 @@
+.prato-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.prato-card__foto {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--fundo-escuro);
+}
+
+.prato-card__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.prato-card__link:hover .prato-card__foto img {
+  transform: scale(1.04);
+}
+
+.prato-card__link:hover .linha-preco__nome {
+  text-decoration: underline;
+  text-decoration-color: var(--mostarda);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+.prato-card__sem-foto {
+  color: var(--suave);
+  font-weight: 600;
+}
+
+.prato-card__descricao {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--suave);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.prato-card__fotos {
+  margin: auto 0 0;
+  font-size: 0.9rem;
+  color: var(--suave);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prato-card__foto img {
+    transition: none;
+  }
+}

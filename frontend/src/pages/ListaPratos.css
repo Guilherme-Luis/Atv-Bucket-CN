@@ -1,0 +1,59 @@
+.lista__topo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 4px dotted var(--pontilhado);
+}
+
+.lista__titulo {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: var(--verde);
+}
+
+.lista__subtitulo {
+  margin: 0.6rem 0 0;
+  color: var(--suave);
+  font-size: 1.05rem;
+}
+
+.lista__busca {
+  flex: 0 1 340px;
+}
+
+.lista__busca input {
+  width: 100%;
+}
+
+.lista__grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.lista__vazia {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  color: var(--suave);
+  text-align: center;
+}
+
+.lista__vazia p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .lista__busca {
+    flex-basis: 100%;
+  }
+}

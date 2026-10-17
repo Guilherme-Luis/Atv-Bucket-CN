@@ -1,0 +1,44 @@
+.linha-preco {
+  display: flex;
+  align-items: last baseline;
+  gap: 0.5rem;
+}
+
+.linha-preco__nome {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.linha-preco__pontos {
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 3px dotted var(--pontilhado);
+  transform: translateY(-0.3em);
+}
+
+.linha-preco__valor {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--verde);
+}
+
+.linha-preco--grande .linha-preco__nome {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.linha-preco--grande .linha-preco__valor {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+.linha-preco--grande .linha-preco__pontos {
+  border-bottom-width: 4px;
+}
