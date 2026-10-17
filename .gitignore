@@ -1,4 +1,5 @@
-.CONTEXT/
+docs/sa-grupo-j-key.json
+
 .env
 *-key.json
 

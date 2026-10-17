@@ -20,7 +20,10 @@ gcp:
   storage:
     project-id: ${GCP_PROJECT_ID}
     bucket: ${GCP_BUCKET_NAME}
-    credentials: ${GOOGLE_APPLICATION_CREDENTIALS:}
+    client-id: ${GCP_CLIENT_ID}
+    client-email: ${GCP_CLIENT_EMAIL}
+    private-key-id: ${GCP_PRIVATE_KEY_ID}
+    private-key: ${GCP_PRIVATE_KEY}
     url-publica: https://storage.googleapis.com
 
 app:

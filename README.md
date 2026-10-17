@@ -71,7 +71,7 @@ Os arquivos são gravados no bucket no caminho `pratos/{idDoPrato}/{uuid}.{exten
 
 - JDK 21 ou superior (a variável `JAVA_HOME` deve apontar para ele)
 - Node.js 20.19+ ou 22.12+
-- Chave da Service Account do grupo (`sa-grupo-j-key.json`)
+- Dados da chave da Service Account do grupo (`sa-grupo-j-key.json`), que vão para o `.env`
 
 ### Backend
 
@@ -87,7 +87,10 @@ Preencha o `.env`:
 | `DB_URL` | String de conexão do MongoDB |
 | `GCP_PROJECT_ID` | Projeto do GCP (`serjava-demo`) |
 | `GCP_BUCKET_NAME` | Bucket do grupo (`fatec-2026-grupo-j`) |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Caminho da chave JSON da Service Account |
+| `GCP_CLIENT_ID` | Campo `client_id` da chave JSON da Service Account |
+| `GCP_CLIENT_EMAIL` | Campo `client_email` da chave JSON |
+| `GCP_PRIVATE_KEY_ID` | Campo `private_key_id` da chave JSON |
+| `GCP_PRIVATE_KEY` | Campo `private_key` da chave JSON, em uma única linha com as quebras escritas como `\n` |
 | `CORS_ORIGENS` | Endereço do frontend (padrão `http://localhost:5173`) |
 
 ```bash
@@ -131,7 +134,7 @@ A interface fica disponível em `http://localhost:5173`.
 | Listagem com miniatura da imagem principal pela URL pública | Tela **Cardápio** (lista) |
 | Detalhe com a principal em destaque e galeria | Tela de detalhe do prato |
 | Banco local para os dados, bucket apenas para as imagens | MongoDB (`Prato`/`Imagem`) e `BucketService` |
-| Uso exclusivo do bucket e da chave da SA | `GcpStorageConfig` com `GOOGLE_APPLICATION_CREDENTIALS` |
+| Uso exclusivo do bucket e da chave da SA | `GcpStorageConfig`, com a credencial da SA montada a partir do `.env` |
 | Upload, listagem de objetos e download feitos pela aplicação | `BucketService.enviar`, `listar` e `baixar` |
 | Leitura pública pelas URLs `storage.googleapis.com` | Imagens exibidas diretamente pela URL pública |
 | Pelo menos 10 registros com 3 imagens cada | 10 pratos cadastrados no MongoDB, com 30 imagens no bucket |

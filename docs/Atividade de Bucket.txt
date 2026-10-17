@@ -1,0 +1,36 @@
+Atividade de Bucket:
+
+3 contextos:
+
+ecommerce(catálogo: produtos)
+
+petshop(fotos cachorrinhos)
+
+restaurante(Pratos: n fotos)
+
+-------------------------
+
+Grupo irá ganhar 1 tema possível: Ecommerce, PetShop e Restaurante, criar um projeto aplicando os conceitos de "bucket" com base no tema definido no grupo.
+
+Fazer em Java.
+
+Guilherme deve prosseguir com tema de Restaurante.
+
+- Cadastro de entidade
+- Upload de imagens:
+-- Ecommerce:	1 produto: n imagens
+-- PetShop:	1 pet: n imagens por data
+-- restaurante:	1 prato: N imagens
+- listagem (catálogo de entidade)
+- detalhe de uma ocorrência:
+-- Ecommerce:	Acesso aos detalhes do produto
+-- PetShop:	Acesso ao pet do indivíduo.
+-- Restaurante:	Acesso Prato CachorroQuenteExemplo
+
+tela de cadastro
+tela de lista
+tela de detalhes
+
+
+Aplicativo -> Banco(Pode ser MongoDB)
+Aplicativo -> Bucket GCP(Acesso do Fábio)

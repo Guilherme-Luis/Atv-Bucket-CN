@@ -6,7 +6,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public record StorageProperties(
         String projectId,
         String bucket,
-        String credentials,
+        String clientId,
+        String clientEmail,
+        String privateKeyId,
+        String privateKey,
         String urlPublica
 ) {
 }
