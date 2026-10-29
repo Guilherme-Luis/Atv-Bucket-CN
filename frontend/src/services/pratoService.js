@@ -42,10 +42,6 @@ export function excluirImagem(pratoId, imagemId) {
   return requisicao(`${RECURSO}/${pratoId}/imagens/${imagemId}`, { method: 'DELETE' });
 }
 
-export function listarObjetosNoBucket(pratoId) {
-  return requisicao(`${RECURSO}/${pratoId}/imagens/bucket`);
-}
-
 export function urlDownloadImagem(pratoId, imagemId) {
   return montarUrl(`${RECURSO}/${pratoId}/imagens/${imagemId}/download`);
 }

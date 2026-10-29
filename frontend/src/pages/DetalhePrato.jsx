@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Aviso from '../components/Aviso';
 import Carregando from '../components/Carregando';
 import Galeria from '../components/Galeria';
 import LinhaPreco from '../components/LinhaPreco';
-import ObjetosBucket from '../components/ObjetosBucket';
 import SeletorImagens from '../components/SeletorImagens';
 import {
   buscarPrato,
@@ -12,7 +11,6 @@ import {
   enviarImagens,
   excluirImagem,
   excluirPrato,
-  listarObjetosNoBucket,
 } from '../services/pratoService';
 import { formatarDataHora, pluralizar } from '../utils/formatadores';
 import './DetalhePrato.css';
@@ -23,23 +21,12 @@ export default function DetalhePrato() {
   const location = useLocation();
 
   const [prato, setPrato] = useState(null);
-  const [objetos, setObjetos] = useState([]);
-  const [erroBucket, setErroBucket] = useState('');
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(location.state?.erro ?? '');
   const [sucesso, setSucesso] = useState(location.state?.sucesso ?? '');
   const [imagemEmProcesso, setImagemEmProcesso] = useState(null);
   const [novosArquivos, setNovosArquivos] = useState([]);
   const [enviando, setEnviando] = useState(false);
-
-  const carregarObjetos = useCallback(() => {
-    listarObjetosNoBucket(id)
-      .then((dados) => {
-        setObjetos(dados);
-        setErroBucket('');
-      })
-      .catch((falha) => setErroBucket(falha.message));
-  }, [id]);
 
   useEffect(() => {
     if (location.state) {
@@ -50,19 +37,15 @@ export default function DetalhePrato() {
   useEffect(() => {
     setCarregando(true);
     buscarPrato(id)
-      .then((dados) => {
-        setPrato(dados);
-        carregarObjetos();
-      })
+      .then(setPrato)
       .catch((falha) => setErro(falha.message))
       .finally(() => setCarregando(false));
-  }, [id, carregarObjetos]);
+  }, [id]);
 
   function aplicarAtualizacao(pratoAtualizado, mensagem) {
     setPrato(pratoAtualizado);
     setSucesso(mensagem);
     setErro('');
-    carregarObjetos();
   }
 
   async function executar(acao, mensagem) {
@@ -204,14 +187,6 @@ export default function DetalhePrato() {
             {enviando ? 'Enviando...' : `Enviar ${pluralizar(novosArquivos.length, 'foto', 'fotos')}`}
           </button>
         )}
-      </section>
-
-      <section className="detalhe__secao">
-        <h2>Arquivos no bucket</h2>
-        <p className="detalhe__dica">
-          Objetos encontrados no Google Cloud Storage na pasta <code>pratos/{prato.id}/</code>.
-        </p>
-        <ObjetosBucket objetos={objetos} erro={erroBucket} />
       </section>
     </article>
   );

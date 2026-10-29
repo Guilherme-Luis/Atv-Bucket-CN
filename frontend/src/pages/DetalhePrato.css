@@ -78,11 +78,6 @@
   letter-spacing: -0.02em;
 }
 
-.detalhe__dica {
-  margin: -0.75rem 0 1rem;
-  color: var(--suave);
-}
-
 .detalhe__enviar {
   margin-top: 1rem;
 }
